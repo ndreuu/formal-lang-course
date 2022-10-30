@@ -7,25 +7,21 @@ from tests.utils import get_data
 
 
 @pytest.mark.parametrize(
-    "cfg",
-    get_data(
-        "test_ecfg",
-        lambda d: c.CFG.from_text(d["cfg"], d["start"])
-    )
+    "cfg", get_data("test_ecfg", lambda d: c.CFG.from_text(d["cfg"], d["start"]))
 )
 def test_vars(cfg: c.CFG):
     ecfg = ECFG.from_cfg(cfg)
-    vars = cfg.variables if cfg.start_symbol is not None else (cfg.variables | {c.Variable("S")})
+    vars = (
+        cfg.variables
+        if cfg.start_symbol is not None
+        else (cfg.variables | {c.Variable("S")})
+    )
 
     assert ecfg.variables == vars
 
 
 @pytest.mark.parametrize(
-    "cfg",
-    get_data(
-        "test_ecfg",
-        lambda d: c.CFG.from_text(d["cfg"], d["start"])
-    )
+    "cfg", get_data("test_ecfg", lambda d: c.CFG.from_text(d["cfg"], d["start"]))
 )
 def test_terminals(cfg: c.CFG):
     ecfg = ECFG.from_cfg(cfg)
@@ -33,11 +29,7 @@ def test_terminals(cfg: c.CFG):
 
 
 @pytest.mark.parametrize(
-    "cfg",
-    get_data(
-        "test_ecfg",
-        lambda d: c.CFG.from_text(d["cfg"], d["start"])
-    )
+    "cfg", get_data("test_ecfg", lambda d: c.CFG.from_text(d["cfg"], d["start"]))
 )
 def test_starts(cfg: c.CFG):
     ecfg = ECFG.from_cfg(cfg)
@@ -59,7 +51,7 @@ def test_starts(cfg: c.CFG):
                 for p in d["expected_productions"]
             },
         ),
-    )
+    ),
 )
 def test_eq_productions(cfg: c.CFG, expected: dict[c.Variable, re.Regex]):
     ecfg = ECFG.from_cfg(cfg)

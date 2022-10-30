@@ -22,13 +22,13 @@ def _from_ecfg(rsm, ecfg):
     get_data(
         "test_cfg",
         lambda d: (
-                ECFG.from_cfg(
-                    c.CFG.from_text(d["cfg"], d["start"])
-                    if d["start"] is not None
-                    else c.CFG.from_text(d["cfg"])
-                )
+            ECFG.from_cfg(
+                c.CFG.from_text(d["cfg"], d["start"])
+                if d["start"] is not None
+                else c.CFG.from_text(d["cfg"])
+            )
         ),
-    )
+    ),
 )
 def test_rsm_ecfg(ecfg: ECFG):
     assert _from_ecfg(RSM.from_ecfg(ecfg), ecfg)
@@ -39,15 +39,15 @@ def test_rsm_ecfg(ecfg: ECFG):
     get_data(
         "test_cfg",
         lambda d: (
-                RSM.from_ecfg(
-                    ECFG.from_cfg(
-                        c.CFG.from_text(d["cfg"], d["start"])
-                        if d["start"] is not None
-                        else c.CFG.from_text(d["cfg"])
-                    )
+            RSM.from_ecfg(
+                ECFG.from_cfg(
+                    c.CFG.from_text(d["cfg"], d["start"])
+                    if d["start"] is not None
+                    else c.CFG.from_text(d["cfg"])
                 )
-        )
-    )
+            )
+        ),
+    ),
 )
 def test_minimization(rsm: RSM):
     actual = deepcopy(rsm).minimize()
