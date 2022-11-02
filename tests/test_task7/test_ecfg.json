@@ -16,7 +16,7 @@
       ]
     },
     {
-      "cfg": "A -> A B\nA -> C\nA-> A a\nB -> A\n\nB -> $\n C -> A A | $",
+      "cfg": "A -> A B\nA -> C\nA-> A a\nB -> A\nB -> $\n C -> A A | $",
       "start": "A",
       "expected_productions": [
         {
