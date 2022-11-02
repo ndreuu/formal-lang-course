@@ -34,12 +34,12 @@
       ]
     },
     {
-      "cfg": "S -> a S b S | $",
+      "cfg": "S -> a b S | $",
       "start": "S",
       "expected_productions": [
         {
           "head": "S",
-          "body": "a S b S | $"
+          "body": "a b S | $"
         }
       ]
     }
