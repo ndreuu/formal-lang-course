@@ -34,8 +34,8 @@ def dot_to_nfa(dot: str) -> fa.EpsilonNFA:
 
 
 def eq_automata(
-    fa1,
-    fa2,
+    fa1: fa.DeterministicFiniteAutomaton,
+    fa2: fa.DeterministicFiniteAutomaton,
 ) -> bool:
     min1 = fa1.minimize()
     min2 = fa2.minimize()
