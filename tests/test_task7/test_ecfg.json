@@ -16,12 +16,12 @@
       ]
     },
     {
-      "cfg": "S -> a | b",
+      "cfg": "S -> a|b",
       "start": null,
       "expected_productions": [
         {
           "head": "S",
-          "body": "a | b"
+          "body": "a|b"
         }
       ]
     },
@@ -46,12 +46,12 @@
       ]
     },
     {
-      "cfg": "A -> A B\nA -> C\nA-> A a\nB -> A\n\nB -> $\n C -> A A | $",
+      "cfg": "A -> A B\nA -> C\nA-> A a\nB -> A\n\nB -> $\n C -> A A|$",
       "start": "A",
       "expected_productions": [
         {
           "head": "A",
-          "body": "A B | C | A a"
+          "body": "A B|C|A a"
         },
         {
           "head": "B",
@@ -59,7 +59,7 @@
         },
         {
           "head": "C",
-          "body": "A A | $"
+          "body": "A A|$"
         }
       ]
     }
