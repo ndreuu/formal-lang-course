@@ -150,5 +150,3 @@ class BooleanDecomposition:
                     dok_mtx[state_to_index[state_from], state_to_index[state_to]] = True
             boolean_matrices[label] = dok_mtx
         return boolean_matrices
-
-

@@ -30,4 +30,3 @@ def test_cfpq(
 ):
     actual = tensor_cfpq(graph, query, start_nodes, final_nodes, start_var)
     assert actual == expected
-
