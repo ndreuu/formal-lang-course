@@ -5,7 +5,6 @@ from pyformlang.finite_automaton import EpsilonNFA
 from scipy import sparse
 from scipy.sparse import eye
 
-from project.boolean_decompositonNFA import BooleanDecompositionNFA
 from project.boolean_decompositon import BooleanDecomposition
 from project.cfg import cfg_to_wcnf
 from project.ecfg import ECFG
