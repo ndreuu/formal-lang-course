@@ -40,7 +40,7 @@ expr =
 
 lambda =
     Lambda of List<var> * expr
-    
+
 ```
 ## Описание конкретного синтаксиса языка
 ```
@@ -70,7 +70,7 @@ graph -> load_graph
        | add_start
        | add_final
        | LP graph RP
-       
+
 load_graph -> LOAD path
 set_start -> SET START OF (graph | var) TO (vertices | var)
 set_final -> SET FINAL OF (graph | var) TO (vertices | var)
