@@ -1,0 +1,104 @@
+{
+  "test_check_parser_correct": [
+    {
+      "input": "x = 023423;",
+      "is_correct": false
+    },
+    {
+      "input": "x = 00;",
+      "is_correct": false
+    },
+    {
+      "input": "x = 0;",
+      "is_correct": true
+    },
+    {
+      "input": "x = 23423;",
+      "is_correct": true
+    },
+    {
+      "input": "x = ;",
+      "is_correct": false
+    },
+    {
+      "input": "x = ();",
+      "is_correct": false
+    },
+    {
+      "input": "x",
+      "is_correct": false
+    },
+    {
+      "input": "x = (1, \"l\", 2);",
+      "is_correct": true
+    },
+    {
+      "input": "x = filter (fun 1: 1) 1;",
+      "is_correct": false
+    },
+    {
+      "input": "x = filter p p;",
+      "is_correct": false
+    },
+    {
+      "input": "print(1);",
+      "is_correct": true
+    },
+    {
+      "input": "print(\"1\");",
+      "is_correct": true
+    },
+    {
+      "input": "print(\"\");",
+      "is_correct": true
+    },
+    {
+      "input": "print();",
+      "is_correct": false
+    },
+    {
+      "input": "print var;",
+      "is_correct": true
+    },
+    {
+      "input": "print;",
+      "is_correct": false
+    },
+    {
+      "input": "print \"\";",
+      "is_correct": true
+    },
+    {
+      "input": "g = load \"go\";",
+      "is_correct": true
+    },
+    {
+      "input": "g = set start of (set final of g to (select vertices from g)) to {1..100};",
+      "is_correct": true
+    },
+    {
+      "input": "x = fun v: v in s;",
+      "is_correct": true
+    },
+    {
+      "input": "x = \"x\" | \"y\";",
+      "is_correct": true
+    },
+    {
+      "input": "x = \"subclass_of\" . q;",
+      "is_correct": true
+    },
+    {
+      "input": "x = g & q1;",
+      "is_correct": true
+    },
+    {
+      "input": "s = select start vertices from g;",
+      "is_correct": true
+    },
+    {
+      "input": "x = filter (fun v: v in s) (map (fun ((u_g,u_q1),l,(v_g,v_q1)): u_g) (select edges from res1));",
+      "is_correct": true
+    }
+  ]
+}
