@@ -1,0 +1,12 @@
+{
+  "test_generate_dot": [
+    {
+      "input": "x = 1;",
+      "expected": "digraph tree {\n1 [label=prog];\n1 -> 2;\n2 [label=stmt];\n2 -> 3;\n3 [label=var];\n3 -> 4;\n4 [label=\"TERM: x\"];\n2 -> 5;\n5 [label=\"TERM:  = \"];\n2 -> 6;\n6 [label=expr];\n6 -> 7;\n7 [label=val];\n7 -> 8;\n8 [label=vertices];\n8 -> 9;\n9 [label=vertex];\n9 -> 10;\n10 [label=\"TERM: 1\"];\n1 -> 11;\n11 [label=\"TERM: ;\"];\n1 -> 12;\n12 [label=\"TERM: <EOF>\"];\n}\n"
+    },
+    {
+      "input": "g = set start of (set final of g to (select vertices from g)) to {1..100};",
+      "expected": "digraph tree {\n1 [label=prog];\n1 -> 2;\n2 [label=stmt];\n2 -> 3;\n3 [label=var];\n3 -> 4;\n4 [label=\"TERM: g\"];\n2 -> 5;\n5 [label=\"TERM:  = \"];\n2 -> 6;\n6 [label=expr];\n6 -> 7;\n7 [label=val];\n7 -> 8;\n8 [label=graph];\n8 -> 9;\n9 [label=set_start];\n9 -> 10;\n10 [label=\"TERM: set \"];\n9 -> 11;\n11 [label=\"TERM: start \"];\n9 -> 12;\n12 [label=\"TERM: of \"];\n9 -> 13;\n13 [label=graph];\n13 -> 14;\n14 [label=\"TERM: (\"];\n13 -> 15;\n15 [label=graph];\n15 -> 16;\n16 [label=set_final];\n16 -> 17;\n17 [label=\"TERM: set \"];\n16 -> 18;\n18 [label=\"TERM: final \"];\n16 -> 19;\n19 [label=\"TERM: of \"];\n16 -> 20;\n20 [label=var];\n20 -> 21;\n21 [label=\"TERM: g\"];\n16 -> 22;\n22 [label=\"TERM:  to \"];\n16 -> 23;\n23 [label=vertices];\n23 -> 24;\n24 [label=\"TERM: (\"];\n23 -> 25;\n25 [label=vertices];\n25 -> 26;\n26 [label=select_vertices];\n26 -> 27;\n27 [label=\"TERM: select \"];\n26 -> 28;\n28 [label=\"TERM: vertices \"];\n26 -> 29;\n29 [label=\"TERM: from \"];\n26 -> 30;\n30 [label=var];\n30 -> 31;\n31 [label=\"TERM: g\"];\n23 -> 32;\n32 [label=\"TERM: )\"];\n13 -> 33;\n33 [label=\"TERM: ) \"];\n9 -> 34;\n34 [label=\"TERM: to \"];\n9 -> 35;\n35 [label=vertices];\n35 -> 36;\n36 [label=vertices_range];\n36 -> 37;\n37 [label=\"TERM: {\"];\n36 -> 38;\n38 [label=\"TERM: 1\"];\n36 -> 39;\n39 [label=\"TERM: .\"];\n36 -> 40;\n40 [label=\"TERM: .\"];\n36 -> 41;\n41 [label=\"TERM: 100\"];\n36 -> 42;\n42 [label=\"TERM: }\"];\n1 -> 43;\n43 [label=\"TERM: ;\"];\n1 -> 44;\n44 [label=\"TERM: <EOF>\"];\n}\n"
+    }
+  ]
+}
