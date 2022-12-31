@@ -40,7 +40,7 @@ def hellings_cfpq(
     start_nodes: set[int] | None = None,
     final_nodes: set[int] | None = None,
     start_var: str | c.Variable = c.Variable("S"),
-) -> set[tuple[int, int]]:
+) -> set:
     return _cfpq(
         graph,
         query,
@@ -57,7 +57,7 @@ def matrix_cfpq(
     start_nodes: set[int] | None = None,
     final_nodes: set[int] | None = None,
     start_var: str | c.Variable = c.Variable("S"),
-) -> set[tuple[int, int]]:
+) -> set:
     return _cfpq(
         graph,
         query,
