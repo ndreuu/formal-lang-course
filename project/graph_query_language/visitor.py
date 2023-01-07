@@ -38,7 +38,7 @@ class Visitor(GraphQueryLanguageVisitor):
             "AND": "intersect",
             "OR": "union",
             "DOT": "concatenate",
-            "IN": "find"
+            "IN": "find",
         }
         unary_op = {"NOT": "inverse", "KLEENE": "kleene"}
         for b_op in binary_op:
@@ -253,13 +253,14 @@ class Visitor(GraphQueryLanguageVisitor):
     def visitVariables(self, ctx: GraphQueryLanguageParser.VariablesContext):
         anfunc_context = {}
         if ctx.var_edge():
-            raise NotImplementedException("visitVariables: Anfunc doesn't support var_edge")
+            raise NotImplementedException(
+                "visitVariables: Anfunc doesn't support var_edge"
+            )
         else:
             for v in ctx.var():
                 anfunc_context[v.getText()] = None
 
         return anfunc_context
-
 
     def visitCfg(self, ctx: GraphQueryLanguageParser.CfgContext) -> GqlCFG:
         cfg_text = ctx.CFG().getText().strip('"""')
