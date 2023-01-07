@@ -1,0 +1,172 @@
+{
+  "test_scripts": [
+    {
+      "input": "print false & false;",
+      "expected": "false\n"
+    },
+    {
+      "input": "print false & true;",
+      "expected": "false\n"
+    },
+    {
+      "input": "print true & false;",
+      "expected": "false\n"
+    },
+    {
+      "input": "print true & true;",
+      "expected": "true\n"
+    },
+    {
+      "input": "print false | false;",
+      "expected": "false\n"
+    },
+    {
+      "input": "print false | true;",
+      "expected": "true\n"
+    },
+    {
+      "input": "print true | false;",
+      "expected": "true\n"
+    },
+    {
+      "input": "print true | true;",
+      "expected": "true\n"
+    },
+    {
+      "input": "print not true;",
+      "expected": "false\n"
+    },
+    {
+      "input": "print not false;",
+      "expected": "true\n"
+    },
+    {
+      "input": "print {1, 2, 3} & {2, 3, 4};",
+      "expected": "{2, 3}\n"
+    },
+    {
+      "input": "print {10, 11} & {};",
+      "expected": "{}\n"
+    },
+    {
+      "input": "print {} & {10, 22, 33, 44};",
+      "expected": "{}\n"
+    },
+    {
+      "input": "print {10, 11, 12} & {20, 21, 22};",
+      "expected": "{}\n"
+    },
+    {
+      "input": "print {1, 2, 3} | {2, 3, 4};",
+      "expected": "{1, 2, 3, 4}\n"
+    },
+    {
+      "input": "print {10, 11} | {};",
+      "expected": "{10, 11}\n"
+    },
+    {
+      "input": "print {} | {10, 22, 33, 44};",
+      "expected": "{33, 10, 44, 22}\n"
+    },
+    {
+      "input": "print {} | {};",
+      "expected": "{}\n"
+    },
+    {
+      "input": "print {10, 11, 12} | {20, 21, 22};",
+      "expected": "{20, 21, 22, 10, 11, 12}\n"
+    },
+    {
+      "input": "print {11..14};",
+      "expected": "{11, 12, 13, 14}\n"
+    },
+    {
+      "input": "print {1..1};",
+      "expected": "{1}\n"
+    },
+    {
+      "input": "print 11 in {11..14};",
+      "expected": "true\n"
+    },
+    {
+      "input": "print 2 in {1, 2, 3};",
+      "expected": "true\n"
+    },
+    {
+      "input": "print 5 in {11..14};",
+      "expected": "false\n"
+    },
+    {
+      "input": "print 5 in {1, 2, 3};",
+      "expected": "false\n"
+    },
+    {
+      "input": "print 2 in {};",
+      "expected": "false\n"
+    },
+    {
+      "input": "graph = load \"pizza\";\nh1 = set start of graph to {};\nprint select start vertices from h1;",
+      "expected": "{}\n"
+    },
+    {
+      "input": "graph = load \"pizza\";\nh1 = set start of graph to {1, 2, 3};\nprint select start vertices from h1;",
+      "expected": "{1, 2, 3}\n"
+    },
+    {
+      "input": "graph = load \"pizza\";\nh1 = set final of graph to {};\nprint select final vertices from h1;",
+      "expected": "{}\n"
+    },
+    {
+      "input": "graph = load \"pizza\";\nh1 = set final of graph to {1, 2, 3};\nprint select final vertices from h1;",
+      "expected": "{1, 2, 3}\n"
+    },
+    {
+      "input": "print \"l1\" & \"l1\" & \"l1\" | \"l1\";",
+      "expected": "($.\"l1\")\n"
+    },
+    {
+      "input": "regex_first = \"l1\" . \"l2\"*;\nregex_second = \"l1\" | \"l2\"* | \"l4\";\nintersection = regex_first & regex_second;\nprint intersection;\nregex_third = regex_first | regex_second;\nprint intersection & regex_third;\n",
+      "expected": "($.\"l1\")\n($.\"l1\")\n"
+    },
+    {
+      "input": "print filter (fun x: x in {2}) {1, 2};",
+      "expected": "{2}\n"
+    },
+    {
+      "input": "print filter (fun _: 0) {1, 2};",
+      "expected": "{}\n"
+    },
+    {
+      "input": "print filter (fun _: 1) {1, 2};",
+      "expected": "{1, 2}\n"
+    },
+    {
+      "input": "print filter (fun _: true) {1, 2};",
+      "expected": "{1, 2}\n"
+    },
+    {
+      "input": "print filter (fun _: false) {1, 2};",
+      "expected": "{}\n"
+    },
+    {
+      "input": "print map (fun x: x in {2}) {1, 2};",
+      "expected": "{false, true}\n"
+    },
+    {
+      "input": "print map (fun x: x) {1, 2};",
+      "expected": "{1, 2}\n"
+    },
+    {
+      "input": "print map (fun _: 0) {1, 2};",
+      "expected": "{0}\n"
+    },
+    {
+      "input": "print map (fun _: false) {1, 2};",
+      "expected": "{false}\n"
+    },
+    {
+      "input": "print map (fun _: 0) {};",
+      "expected": "{}\n"
+    }
+  ]
+}

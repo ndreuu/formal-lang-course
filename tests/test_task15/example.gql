@@ -1,0 +1,4 @@
+regex_first = "l1" . "l2"*;
+regex_second = "l1" | "l2"* | "l3";
+intersection = regex_first & regex_second;
+print regex_first | regex_second;

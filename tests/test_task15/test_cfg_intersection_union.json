@@ -1,0 +1,40 @@
+{
+  "test_cfg_intersection_union": [
+    {
+      "input": "cfg = \"\"\"S -> a\n\"\"\";\ngraph = load \"tests/test_task15/ab.dot\";\ngraph = set start of graph to {0..2};\ngraph = set final of graph to {0..2};\ncfpq = cfg & graph;\nprint cfpq;",
+      "expected": "0 -> a\nStart -> \"VAR:0\""
+    },
+    {
+      "input": "cfg = \"\"\"S -> a S b\nS -> epsilon\n\"\"\";\ngraph = load \"tests/test_task15/ab.dot\";\ngraph = set start of graph to {0..2};\ngraph = set final of graph to {0..2};\ncfpq = cfg & graph;\nprint cfpq;",
+      "expected": "0 -> b\n17 -> a\n22 -> \"VAR:17\" \"VAR:0\"\nStart -> \"VAR:22\"\nStart -> \n"
+    },
+    {
+      "input": "cfg = \"\"\"S -> a S b\nS -> epsilon\n\"\"\";\n\nab = load \"tests/test_task15/ab.dot\";\nab = set start of ab to {0};\nab = set final of ab to {2};\n\nprint ab & cfg;\n",
+      "expected": "20 -> \"VAR:15\" \"VAR:33\"\n15 -> a\n33 -> b\nStart -> \"VAR:20\""
+    },
+    {
+      "input": "cfg = \"\"\"S -> a S b\nS -> epsilon\n\"\"\";\n\na = load \"tests/test_task15/a.dot\";\na = set start of a to {1};\na = set final of a to {2};\n\nprint a & cfg;",
+      "expected": ""
+    },
+    {
+      "input": "cfg = \"\"\"S -> epsilon\n\"\"\";\n\na = load \"tests/test_task15/a.dot\";\na = set start of a to {1};\na = set final of a to {2};\n\nprint a & cfg;",
+      "expected": ""
+    },
+    {
+      "input": "cfg = \"\"\"S -> epsilon\n\"\"\";\n\na = load \"tests/test_task15/ab.dot\";\na = set start of a to {0};\na = set final of a to {2};\n\nprint a & cfg;",
+      "expected": ""
+    },
+    {
+      "input": "cfg = \"\"\"S -> a S b\nS -> epsilon\n\"\"\";\ncfgg = \"\"\"S -> c d e\n\"\"\";print cfgg | cfg;",
+      "expected": "S#SUBS#2 -> a S#SUBS#2 b\nS#SUBS#2 -> \nS#SUBS#1 -> c d e\n#STARTUNION##SUBS#0 -> S#SUBS#1\n#STARTUNION##SUBS#0 -> S#SUBS#2\n\n"
+    },
+    {
+      "input": "cfg = \"\"\"S -> epsilon\n\"\"\";\ncfgg = \"\"\"S -> c d e\n\"\"\";print cfgg | cfg;",
+      "expected": "#STARTUNION##SUBS#0 -> S#SUBS#2\n#STARTUNION##SUBS#0 -> S#SUBS#1\nS#SUBS#1 -> c d e\nS#SUBS#2 -> "
+    },
+    {
+      "input": "cfg = \"\"\"S -> epsilon\n\"\"\";\ncfgg = \"\"\"S -> epsilon\n\"\"\";print cfgg | cfg;",
+      "expected": "#STARTUNION##SUBS#0 -> S#SUBS#1\nS#SUBS#1 -> \n#STARTUNION##SUBS#0 -> S#SUBS#2\nS#SUBS#2 -> "
+    }
+  ]
+}
