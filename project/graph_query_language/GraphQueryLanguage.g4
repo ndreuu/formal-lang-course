@@ -31,7 +31,7 @@ graph : load_graph
 
 cfg : CFG ;
 
-load_graph : LOAD (path | string);
+load_graph : LOAD (string);
 set_start : SET START OF (graph | var) TO (vertices | var) ;
 set_final : SET FINAL OF (graph | var) TO (vertices | var) ;
 add_start : ADD START OF (graph | var) TO (vertices | var) ;
@@ -78,7 +78,7 @@ select_vertices : SELECT VERTICES FROM (graph | var) ;
 vertices_range : LCB INT DOT DOT INT RCB ;
 
 string : STRING ;
-path : PATH ;
+//path : PATH ;
 
 vertices_set : LCB (INT COMMA)* (INT)? RCB
              | vertices_range ;
@@ -150,8 +150,7 @@ FALSE : 'false' ;
 VAR : ('_' | CHAR) ID_CHAR* ;
 
 INT : NONZERO_DIGIT DIGIT* | '0' ;
-STRING : QUOT (CHAR | DIGIT | '_' | ' ')* QUOT ;
-PATH : QUOT (CHAR | DIGIT | '_' | ' ' | '/' | '\\' | ':' | DOT)* QUOT ;
+STRING : QUOT (CHAR | DIGIT | '-' | '_' | ' ' | '/' | '\\' | ':' | DOT)* QUOT ;
 ID_CHAR : (CHAR | DIGIT | '_');
 CHAR : [a-z] | [A-Z];
 NONZERO_DIGIT : [1-9];

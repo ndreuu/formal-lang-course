@@ -1,5 +1,6 @@
 import cfpq_data
 import networkx
+from pyformlang.finite_automaton import NondeterministicFiniteAutomaton
 
 from project.graph_info import GraphInfo
 
@@ -29,3 +30,41 @@ def generate_two_cycles_graph(num_of_fst_cycle_nodes, num_of_snd_cycle_nodes, pa
     )
 
     networkx.drawing.nx_pydot.write_dot(graph, path)
+
+
+def add_states_to_nfa(
+    nfa: NondeterministicFiniteAutomaton,
+    start_states: set = None,
+    final_states: set = None,
+) -> NondeterministicFiniteAutomaton:
+    new_nfa = nfa.copy()
+
+    if start_states:
+        for state in start_states:
+            new_nfa.add_start_state(state)
+
+    if final_states:
+        for state in final_states:
+            new_nfa.add_final_state(state)
+
+    return new_nfa
+
+
+def replace_nfa_states(
+    nfa: NondeterministicFiniteAutomaton,
+    start_states: set = None,
+    final_states: set = None,
+) -> NondeterministicFiniteAutomaton:
+    new_nfa = nfa.copy()
+    new_nfa._start_states = set()
+    new_nfa._final_states = set()
+
+    if start_states:
+        for state in start_states:
+            new_nfa.add_start_state(state)
+
+    if final_states:
+        for state in final_states:
+            new_nfa.add_final_state(state)
+
+    return new_nfa
